@@ -2,7 +2,7 @@
     --fuenteHeading:'PT Sans', sans-serif; 
     --fuenteParrafos:'Open Sans', sans-serif;
 
-    --primario:#784d3c;
+    --primario:#5a3d32;
     --gris: #e1e1e1;
     --blanco: #ffffff;
     --negro: #000000;
@@ -16,30 +16,37 @@ html {
     box-sizing: inherit; /*hereda del elemento padre (html en este caso)*/
 }
 body {
+    flex-direction: column;
     font-family: var(--fuenteParrafos);
     font-size: 1.6;
-    line-height: 2;
+    line-height: 3rem;
 }
 
 /**     globales   **/
 .contenedor {
-    max-width: 120rem;
-    width: 95%;
+    max-width: 90rem;
+    width: 100%;
     margin: auto;
+    padding: 0rem;
 }
 @media (min-width: 768px) {
     .contenedor {
-        max-width: 90rem;
+        max-width: 100rem;
         width: 70%;
         margin: auto;
     }
 }
+main {
+    width: 100%;
+}
 
 a {
     text-decoration: none; /*le saca el interlineado a los enlaces*/
+    margin-top: 2.5rem;
 }
 h1, h2, h3, h4 {
     font-family: var(--fuenteHeading);
+    line-height: 4rem;
 }
 h1 {
     font-size: 4.8rem;
@@ -52,6 +59,7 @@ h3 {
 }
 h4 {
     font-size: 2.8rem;
+
 }
 img {
     max-width: 100%;
@@ -75,6 +83,7 @@ img {
     background-repeat: no-repeat;
     background-position: center center;/** centra la imagen v y h cuando achicas la view**/
 }
+
 .header__texto {
     text-align: center;
     color: var(--blanco);
@@ -85,19 +94,22 @@ img {
           margin: 15rem;
       }
 }
+
 @media (min-width: 768px) {
     .barra {
        display: flex;
        justify-content: space-between;/** j c alinea contenido horizontalmente**/
        align-items: center;
+       text-align: center;
     }
 }
+
 .logo {
   color: var(--blanco);
 }
 .logo__nombre {
   font-weight: 400;/* o "normal" es lo mismo*/
-
+  margin: 3rem auto;
 }
 .logo__bold {
    font-weight: 700; /* o bold*/
@@ -105,7 +117,13 @@ img {
 @media (min-width: 768px) {
       .navegacion {
           display: flex;
-          gap: 1rem;
+          gap: 2rem;
+         
+      }
+}
+@media (min-width: 768px) {
+      .navegacion__enlace {
+          margin-top: 2rem ;
       }
 }
 .navegacion__enlace {
@@ -113,12 +131,14 @@ img {
     text-align: center; /*para que se centren verticalmente*/
     font-size: 1.8rem;
     color: var(--blanco);
+    
+
 }
 @media (min-width: 768px) {
     .contenido-principal {
        display: grid;
        grid-template-columns: 2fr 1fr;
-       column-gap: 1rem;
+       column-gap: 2rem;
     }
 }
 .entrada {
@@ -133,17 +153,25 @@ img {
     display: block;    
     color: var(--blanco);
     padding: 1rem 3rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     text-align: center;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 2rem;
+    border: none;
 
 }
 @media (min-width: 768px) {
       .boton {
           display: inline-block;
       }
+}
+.boton {
+    cursor: pointer;
+    width: auto;
+    margin: 0 auto;
+    border-radius: .3rem;
+    text-decoration: none;
 }
 .boton--primario {
     background-color: var(--negro);
@@ -152,10 +180,134 @@ img {
     background-color: var(--primario);
 }
 .sidebar {
-    display: flex;
-    flex-direction: column;
+    display: block;
     
 }
 .cursos {
     list-style-type: none;
 }
+.widget-curso{
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.widget-curso:last-of-type {
+    border:none;
+    margin-bottom: 0;
+}
+.widget-curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+.widget-curso__info {
+   font-weight: normal;
+}
+.widget-curso__label{
+    font-weight: normal;
+}
+.curso__label,
+.curso__info {
+    font-size: 2rem;
+}
+.footer {
+     background-color: var(--negro);
+     margin-top: 1rem;
+ 
+}
+
+
+
+
+
+/* sobre nosotros */
+@media (min-width: 768px) {
+      .sobre-nosotros {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 2rem;
+      }
+
+/*.sobre-nosotros__texto {
+    flex: 0 0 calc(50% - 1rem); factor de crecimiento
+}
+.sobre-nosotros__imagen {
+    flex: 0 0 calc(50% - 1rem);
+}
+
+/*.sobre-nosotros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap:} 2rem;  con grid */
+
+
+/*.sobre-nosotros__imagen,
+.sobre-nosotros__texto {
+    flex-basis: calc(50% - 1rem);}version + soporte  */}
+ 
+    /*   cursos  */
+    .curso {
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--gris);
+    }
+    @media (min-width: 768px) {
+          .curso {
+              display: grid;
+              grid-template-columns: 1fr 2fr;
+              column-gap: 2rem;
+          }
+    }
+    .curso:last-of-type {
+        border-bottom: none;
+    }
+    .widget-curso__label {
+        font-family: var(--fuenteHeading);
+        font-weight: bold;
+    }
+    .widget-curso__info {
+       font-weight: normal;
+       font-size: 1.5rem;
+    }
+    .widget-curso__label,
+    .widget-curso__info {
+        font-size: 2rem;
+    }
+    /*   contacto   */
+    .contacto-bg {
+        background-image: url(../img/contacto.jpg);
+        height: 40rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .formulario {
+        background-color: var(--blanco);
+        margin: -5rem auto 0 auto;
+        width: 95%;
+        padding: 5rem;
+
+    }
+    .campo {
+        display: flex;
+        margin: 2rem;
+        gap: 2rem;
+        border: 1px solid var(--gris);
+        
+    }
+    .compo__label{
+        flex: 0 0 9rem;        
+        padding-right: 2rem;
+
+    }
+    .campo__field{
+        flex: 1;
+
+    }
+    .campo__field--textarea {
+
+    }
+    .campo--email {
+         margin-right: 1rem;
+
+    }
+    input {
+        width: 100%;
+    }
+    
